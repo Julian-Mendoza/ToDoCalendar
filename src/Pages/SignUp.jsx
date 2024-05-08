@@ -11,6 +11,7 @@ const Signup = () => {
   const [password, setPassword] = useState('');
   const [firstName, setFirstName] = useState('');
   const [lastName, setLastName] = useState('');
+  const [userName, setUsername] = useState('');
   const navigate = useNavigate();
 
   const handleSignup = async (e) => {
@@ -23,6 +24,7 @@ const Signup = () => {
         email,
         firstName,
         lastName,
+        userName,
         uid: user.uid
       }).catch((error) => {
         console.error("Error adding document to Firestore:", error);
@@ -58,6 +60,16 @@ const Signup = () => {
               id="lastName"
               value={lastName}
               onChange={(e) => setLastName(e.target.value)}
+              required
+            />
+          </div>
+          <div className="form-group">
+            <label htmlFor="userName">Username:</label>
+            <input
+              type="text"
+              id="userName"
+              value={userName}
+              onChange={(e) => setUsername(e.target.value)}
               required
             />
           </div>
